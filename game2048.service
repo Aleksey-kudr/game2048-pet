@@ -1,0 +1,13 @@
+[Unit]
+Description = My App 
+After = network.target
+
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+ExecStart=/opt/game-task/start.sh
+User=root
+
+[Install]
+WantedBy = multi-user.target
