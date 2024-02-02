@@ -9,5 +9,6 @@ This repo include all configuration and documantion about game2048 in my lab
 * docker 
 * ansible
 * terraform
-* k8s
+* kubectl
+* helm
 
