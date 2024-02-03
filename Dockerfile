@@ -11,8 +11,3 @@ RUN npm install --include=dev && npm run build
 EXPOSE 8080
 
 CMD npm start
-
-
-FROM nginx
-
-COPY ./nginx/game2048.conf /etc/nginx/conf.d/default.conf

@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  game2048:
+    build:
+      context: ./
+    container_name: game2048
+    hostname: game2048
+    ports:
+      - "8080:8080"
+    networks:
+      - game2048-network
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    hostname: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - game2048
+    networks:
+      - game2048-network
