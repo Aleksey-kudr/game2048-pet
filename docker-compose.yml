@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - game2048-network
+      - bridge
 
   nginx:
     build:
@@ -21,4 +21,4 @@ services:
     depends_on:
       - game2048
     networks:
-      - game2048-network
+      - bridge
