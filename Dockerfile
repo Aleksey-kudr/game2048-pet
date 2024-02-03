@@ -4,7 +4,7 @@ RUN mkdir -p /opt/game2048/node_modules && chown -R node:node /opt/game2048
 
 WORKDIR /opt/game2048/
 
-COPY --chown=node:node ./2048-game/ .
+COPY --chown=node:node ./ .
 
 RUN npm install --include=dev && npm run build
 
