@@ -1,4 +1,6 @@
 build_image:
+  tags:
+    - shell-dev
   before_script:
     - docker login gitlab.alkudr.ru:5050
   script:
