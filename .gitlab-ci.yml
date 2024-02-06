@@ -1,31 +1,6 @@
-build-job:
-  stage: build
-  tags:
-    - shell-dev
+build_image:
+  before_script:
+    - docker login gitlab.alkudr.ru:5050
   script:
-    - ls
-
-test-job1:
-  stage: test
-  tags:
-    - shell-dev
-  script:
-    - echo "This job tests something"
-
-test-job2:
-  stage: test
-  tags:
-    - shell-dev
-  script:
-    - echo "This job tests something, but takes more time than test-job1."
-    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-    - echo "which simulates a test that runs 20 seconds longer than test-job1"
-    - sleep 20
-
-deploy-prod:
-  stage: deploy
-  tags:
-    - shell-dev
-  script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-  environment: production
+    - docker build -t gitlab.alkudr.ru:5050/gon/game2048-task .
+    - docker push gitlab.alkudr.ru:5050/gon/game2048-task
