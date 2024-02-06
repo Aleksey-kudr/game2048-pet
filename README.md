@@ -12,3 +12,5 @@ This repo include all configuration and documantion about game2048 in my lab
 * kubectl
 * helm
 
+Test
+
