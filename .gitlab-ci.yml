@@ -1,8 +1,13 @@
+variables:
+  IMAGE_NAME: alekseykudr/game2048
+  IMAGE_TAG: v1.1
+
+
 build_image:
   tags:
     - shell-dev
   before_script:
-    - docker login gitlab.alkudr.ru:5050
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
-    - docker build -t gitlab.alkudr.ru:5050/gon/game2048-task .
-    - docker push gitlab.alkudr.ru:5050/gon/game2048-task
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
