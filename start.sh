@@ -1,5 +1,5 @@
 #! /bin/bash
 source ${HOME}/.bashrc
 
-cd /opt/game-task/
+cd /opt/app/
 npm start
