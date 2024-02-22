@@ -21,7 +21,7 @@ deploy:
   tags:
     - shell-ansible
   before_script:
-    - cd /opt/ansible/
+    - cd /opt/ansible
     - ansible-galaxy role install -f -r requirements.yml
   script:
     - ansible-playbook -i inv_ini game2048-docker.yml
