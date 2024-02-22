@@ -2,8 +2,7 @@ version: "3"
 
 services:
   game2048:
-    build:
-      context: ./
+    image: alekseykudr/game2048:v1.1
     container_name: game2048
     hostname: game2048
     ports:
