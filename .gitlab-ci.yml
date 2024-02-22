@@ -22,7 +22,7 @@ deploy:
     - shell-ansible
   before_script:
     - cd /opt/ansible/
-    - ansible-galaxy role install -f -r requirements.yml
+    - git clone git@gitlab.alkudr.ru:roles/node16.git
   script:
     - ansible-playbook -i inv_ini game2048-docker.yml
 
