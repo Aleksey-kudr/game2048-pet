@@ -15,6 +15,9 @@ build_image:
   script:
     - docker build -t $IMAGE_NAME:$IMAGE_TAG .
     - docker push $IMAGE_NAME:$IMAGE_TAG
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
 
 deploy:
   stage: deploy
@@ -22,7 +25,12 @@ deploy:
     - shell-ansible
   before_script:
     - cd /opt/ansible
+    - ls -la
     - ansible-galaxy install --role-file=requirements.yml --roles-path=roles --force
   script:
     - ansible-playbook -i inv_ini game2048-docker.yml
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+
 
