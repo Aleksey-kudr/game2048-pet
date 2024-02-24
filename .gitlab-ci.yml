@@ -27,7 +27,8 @@ deploy:
   before_script:
     - chmod 400 $SSH_KEY
   script:
-    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@192.168.1.50 " cd /opt/ansible
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@192.168.1.50 " 
+      cd /opt/ansible
       ansible-galaxy install --role-file=requirements.yml --roles-path=roles --force 
       ansible-playbook -i inv_ini game2048-docker.yml "
   needs: []
