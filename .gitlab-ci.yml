@@ -27,6 +27,7 @@ deploy:
   script:
     - cd /opt/ansible
     - ls
+    - ping app01
     - ansible-playbook -i inv.ini game2048-docker.yml
   needs: []
   rules:
