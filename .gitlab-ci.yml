@@ -23,14 +23,11 @@ build_image:
 deploy:
   stage: deploy
   tags:
-    - shell-ansible
-  before_script:
-    - cd /opt/ansible
-    - ls -la
-    - whoami
-    - ansible-galaxy install --role-file=requirements.yml --roles-path=roles --force
+    - shell-dev
   script:
-    - ansible-playbook -i inv_ini game2048-docker.yml
+    - ssh - o StrictHostKeyChecking=no -i $SSH_KEY root@ansible "cd /opt/ansible
+      ansible-galaxy install --role-file=requirements.yml --roles-path=roles --force 
+      ansible-playbook -i inv_ini game2048-docker.yml "
   needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "web"'
