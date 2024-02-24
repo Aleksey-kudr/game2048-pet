@@ -30,7 +30,7 @@ deploy:
     - cd /opt/ansible
     - ls
     - ansible-galaxy install --role-file=requirements.yml --force
-    - ssh /root/.ssh/id_rsa root@app01 " ls "
+    - ssh -i /root/.ssh/id_rsa root@app01 " ls "
     - ansible-playbook -i inv.ini game2048-docker.yml -vvv
   needs: []
   rules:
