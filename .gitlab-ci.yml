@@ -24,10 +24,12 @@ deploy:
   stage: deploy
   tags:
     - shell-ansible
+  before_script:
+    - export ANSIBLE_CONFIG=/opt/ansible/ansible.cfg
   script:
     - cd /opt/ansible
     - ls
-    - ansible-galaxy install --role-file=requirements.yml --force
+    - ansible-galaxy install --role-file=requirements.yml --roles-path=/opt/ansible/roles --force
     - ping -c 4 app01
     - ansible-playbook -i inv.ini game2048-docker.yml
   needs: []
