@@ -27,7 +27,6 @@ deploy:
   script:
     - cd /opt/ansible
     - ls
-    - ansible-galaxy install --role-file=requirements.yml --roles-path=roles --force
     - ansible-playbook -i inv_ini game2048-docker.yml
   needs: []
   rules:
