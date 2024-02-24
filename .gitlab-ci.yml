@@ -27,6 +27,7 @@ deploy:
   before_script:
     - export ANSIBLE_CONFIG=/opt/ansible/ansible.cfg
     - eval $(ssh-agent -s)
+    - whoami
     - chmod -R 600 ~/.ssh
   script:
     - cd /opt/ansible
