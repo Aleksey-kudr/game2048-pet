@@ -31,7 +31,7 @@ deploy:
     - ls
     - ansible-galaxy install --role-file=requirements.yml --force
     - ping -c 4 app01
-    - ansible-playbook -i inv.ini game2048-docker.yml
+    - sudo ansible-playbook -i inv.ini game2048-docker.yml
   needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "web"'
