@@ -22,17 +22,18 @@ build_image:
 
 deploy:
   stage: deploy
+  image:
+    name: devupsen/ansible:6.5.0
   tags:
-    - shell-ansible
+    - docker
   before_script:
-    - export ANSIBLE_CONFIG=/opt/ansible/ansible.cfg
+    - export ANSIBLE_CONFIG=ansible/ansible.cfg
     - eval $(ssh-agent -s)
-    - whoami
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - chmod -R 600 ~/.ss
   script:
-    - cd /opt/ansible
-    - ls
-    - ansible-galaxy install --role-file=requirements.yml --force
-    - ansible-playbook -i inv.ini game2048-docker.yml -vvv
+    - ansible-galaxy install --role-file=ansible/requirements.yml --force
+    - ansible-playbook game2048-docker.yml -vvv
   needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "web"'
