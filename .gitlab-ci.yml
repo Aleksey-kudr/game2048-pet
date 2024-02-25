@@ -30,6 +30,7 @@ deploy:
     - export ANSIBLE_CONFIG=ansible/ansible.cfg
     - eval $(ssh-agent -s)
     - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - ls -la ~/.ssh
     - mkdir -p ~/.ssh
     - chmod -R 600 ~/.ssh
   script:
