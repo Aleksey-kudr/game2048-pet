@@ -33,7 +33,7 @@ deploy:
     #- chmod -R 600 ~/.ssh
   script:
     - ansible-galaxy install --role-file=ansible/requirements.yml --force
-    - ansible-playbook game2048-docker.yml -vvv
+    - ansible-playbook playbook-docker.yml -vvv
   needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "web"'
