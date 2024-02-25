@@ -1,6 +1,6 @@
 - name: game2048 deploy like systemd service in docker-compose with nginx
   hosts: web
   roles:
-    #- docker
-    #- node16
+    - docker
+    - node16
     - game2048-docker
