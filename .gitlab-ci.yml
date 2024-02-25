@@ -30,7 +30,7 @@ deploy:
     - export ANSIBLE_CONFIG=ansible/ansible.cfg
     - eval $(ssh-agent -s)
     - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
-    - chmod -R 600 ~/.ss
+    - chmod -R 600 ~/.ssh
   script:
     - ansible-galaxy install --role-file=ansible/requirements.yml --force
     - ansible-playbook game2048-docker.yml -vvv
