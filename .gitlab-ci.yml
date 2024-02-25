@@ -31,6 +31,7 @@ deploy:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - echo "$SSH_KEY" > /tmp/key && chmod 600 /tmp/key
+    - echo "SSH_PUBLIC_KEY" > ~/.ssh/id_rsa.pub
     - cat /tmp/key > ~/.ssh/id_rsa
     - ssh-add /tmp/key
   script:
