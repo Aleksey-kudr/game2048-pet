@@ -36,7 +36,7 @@ deploy:
     - ssh-add /tmp/key
   script:
     - ansible-galaxy install --role-file=ansible/requirements.yml --force
-    - ansible-playbook playbook-docker.yml --limit app02 -vvv
+    - ansible-playbook playbook-docker.yml --limit
   needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "web"'
