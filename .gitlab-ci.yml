@@ -29,10 +29,10 @@ deploy:
   before_script:
     - export ANSIBLE_CONFIG=ansible/ansible.cfg
     - eval $(ssh-agent -s)
-    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - echo "$SSH_KEY" > /tmp/key && chmod 600 /tmp/key
+    - cat /tmp/key
+    - ssh-add /tmp/key
     - mkdir -p ~/.ssh
-    - ls -la ~/.ssh
-    - chmod -R 600 ~/.ssh
   script:
     - ansible-galaxy install --role-file=ansible/requirements.yml --force
     - ansible-playbook playbook-docker.yml -vvv
