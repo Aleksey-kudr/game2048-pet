@@ -7,8 +7,6 @@ services:
     hostname: game2048
     ports:
       - "8080:8080"
-    networks:
-      - game2048-network
 
   nginx:
     build:
@@ -19,10 +17,3 @@ services:
       - "80:80"
     depends_on:
       - game2048
-    networks:
-      - game2048-network
-
-
-networks:
-  game2048-network:
-    external: true
