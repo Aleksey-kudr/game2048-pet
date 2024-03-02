@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game2048
+spec:
+  selector:
+    matchLabels:
+      app: game2048
+  template:
+    metadata:
+      labels:
+        app: game2048
+    spec:
+      containers:
+        - name: myapp
+          image: alekseykudr/game2048:v1.1
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          ports:
+            - containerPort: 80
