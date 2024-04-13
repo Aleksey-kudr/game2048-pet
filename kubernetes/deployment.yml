@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: alekseykudr/game2048:v1.1
+          image: alekseykudr/game2048:v1.2
           resources:
             limits:
               memory: '128Mi'
